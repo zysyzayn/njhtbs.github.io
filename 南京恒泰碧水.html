@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南京恒泰碧水 - 专业泳池热泵解决方案</title>
+    <!-- 引入Tailwind CSS（快速样式） -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义主题配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF', // 主蓝色
+                        secondary: '#36CFC9', // 泳池浅蓝
+                        dark: '#0F3B8E', // 深蓝
+                        light: '#F5F7FA' // 浅灰背景
+                    },
+                    fontFamily: {
+                        sans: ['Microsoft YaHei', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* 自定义工具类 */
+            .nav-shadow { box-shadow: 0 2px 10px rgba(22, 93, 255, 0.1); }
+            .card-hover { transition: all 0.3s ease; }
+            .card-hover:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(22, 93, 255, 0.15); }
+            .scroll-smooth { scroll-behavior: smooth; }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-light scroll-smooth">
+    <!-- 顶部导航栏（吸顶效果） -->
+    <header id="navbar" class="fixed w-full top-0 left-0 z-50 bg-white nav-shadow transition-all">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- 企业Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa fa-tint text-primary text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold text-primary">南京恒泰碧水</h1>
+            </a>
+            <!-- 桌面端导航 -->
+            <nav class="hidden md:flex gap-8">
+                <a href="#home" class="text-gray-700 hover:text-primary font-medium">首页</a>
+                <a href="#about" class="text-gray-700 hover:text-primary font-medium">企业介绍</a>
+                <a href="#vision" class="text-gray-700 hover:text-primary font-medium">企业愿景</a>
+                <a href="#product" class="text-gray-700 hover:text-primary font-medium">产品中心</a>
+                <a href="#partner" class="text-gray-700 hover:text-primary font-medium">合作方</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary font-medium">联系我们</a>
+            </nav>
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-primary text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端导航 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white px-4 py-2 border-t border-gray-100">
+            <div class="flex flex-col gap-3 pb-3">
+                <a href="#home" class="text-gray-700 hover:text-primary py-2">首页</a>
+                <a href="#about" class="text-gray-700 hover:text-primary py-2">企业介绍</a>
+                <a href="#vision" class="text-gray-700 hover:text-primary py-2">企业愿景</a>
+                <a href="#product" class="text-gray-700 hover:text-primary py-2">产品中心</a>
+                <a href="#partner" class="text-gray-700 hover:text-primary py-2">合作方</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首页Banner -->
+    <section id="home" class="pt-16 md:pt-0 h-screen flex items-center bg-gradient-to-r from-primary to-dark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://picsum.photos/id/1058/1920/1080" alt="泳池背景" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 z-10 text-white">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">专业泳池热泵<br>一站式解决方案服务商</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl opacity-90">南京恒泰碧水——专注泳池水处理、热泵供暖制冷技术，为商业/民用泳池提供高效节能设备</p>
+            <a href="#product" class="bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-light transition-all inline-flex items-center gap-2">
+                查看产品 <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 企业介绍 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-2">企业介绍</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/1076/800/600" alt="南京恒泰碧水企业形象" class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+                <div class="md:w-1/2 text-gray-700 leading-relaxed">
+                    <p class="mb-4 text-lg">南京恒泰碧水环保科技有限公司，是一家专注于<strong class="text-primary">泳池设备、空气源热泵、水处理系统</strong>研发、生产、销售与服务的高新技术企业。</p>
+                    <p class="mb-4">公司立足南京，服务全国，深耕泳池工程与热泵节能领域十余年，拥有专业的研发团队、施工团队和售后服务体系，为酒店、体育馆、小区、私人别墅等各类客户提供定制化解决方案。</p>
+                    <p>我们始终坚持“品质为先、客户至上”的经营理念，以先进的技术、可靠的产品、完善的服务，成为泳池热泵行业的标杆企业。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业愿景 -->
+    <section id="vision" class="py-20 bg-gradient-to-r from-light to-blue-50">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-2">企业愿景</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <i class="fa fa-leaf text-5xl text-primary mb-6"></i>
+                <p class="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium">
+                    成为全球领先的泳池节能设备服务商<br>
+                    以科技守护碧水，以节能创造价值<br>
+                    让每一个泳池都绿色、高效、可持续
+                </p>
+                <p class="mt-6 text-gray-600">专注泳池热泵技术创新，推动行业绿色发展，为客户创造更大价值，为社会贡献环保力量</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心（图文+视频） -->
+    <section id="product" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-2">产品中心</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="mt-4 text-gray-600">专注泳池热泵、水处理设备，高效节能，品质保障</p>
+            </div>
+
+            <!-- 产品图文卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- 产品1 -->
+                <div class="card-hover bg-light rounded-lg overflow-hidden shadow">
+                    <img src="https://picsum.photos/id/1059/600/400" alt="泳池恒温热泵" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-primary mb-2">泳池恒温热泵</h4>
+                        <p class="text-gray-600 mb-4">高效节能，恒温精准，适用于大型商业泳池、体育馆泳池</p>
+                        <span class="text-sm bg-blue-100 text-primary px-3 py-1 rounded-full">节能率75%</span>
+                    </div>
+                </div>
+                <!-- 产品2 -->
+                <div class="card-hover bg-light rounded-lg overflow-hidden shadow">
+                    <img src="https://picsum.photos/id/1060/600/400" alt="空气源热泵机组" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-primary mb-2">空气源热泵机组</h4>
+                        <p class="text-gray-600 mb-4">冷暖两用，适用于别墅泳池、私人会所，静音运行</p>
+                        <span class="text-sm bg-blue-100 text-primary px-3 py-1 rounded-full">静音设计</span>
+                    </div>
+                </div>
+                <!-- 产品3 -->
+                <div class="card-hover bg-light rounded-lg overflow-hidden shadow">
+                    <img src="https://picsum.photos/id/1061/600/400" alt="泳池水处理设备" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-primary mb-2">泳池水处理设备</h4>
+                        <p class="text-gray-600 mb-4">全自动过滤、消毒，水质达标，维护简单</p>
+                        <span class="text-sm bg-blue-100 text-primary px-3 py-1 rounded-full">全自动</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品视频 -->
+            <div class="max-w-4xl mx-auto">
+                <h4 class="text-xl font-bold text-primary text-center mb-6">产品工作原理视频</h4>
+                <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+                    <!-- 替换为你的企业产品视频链接 -->
+                    <iframe width="100%" height="100%" src="https://player.vimeo.com/video/76979871?h=827ec51fa4" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="text-center text-gray-600 mt-4">泳池热泵运行原理 | 节能技术展示</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作方 -->
+    <section id="partner" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-2">企业合作方</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="mt-4 text-gray-600">携手优质企业，共创行业未来</p>
+            </div>
+            <!-- 合作方轮播 -->
+            <div class="overflow-hidden relative">
+                <div id="partnerSlider" class="flex gap-8 items-center justify-start animate-slide">
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/1/100/50" alt="合作方1" class="max-w-full max-h-full"></div>
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/2/100/50" alt="合作方2" class="max-w-full max-h-full"></div>
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/3/100/50" alt="合作方3" class="max-w-full max-h-full"></div>
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/4/100/50" alt="合作方4" class="max-w-full max-h-full"></div>
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/5/100/50" alt="合作方5" class="max-w-full max-h-full"></div>
+                    <!-- 重复实现无限滚动 -->
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/1/100/50" alt="合作方1" class="max-w-full max-h-full"></div>
+                    <div class="w-32 h-16 flex items-center justify-center bg-white rounded shadow p-2"><img src="https://picsum.photos/id/2/100/50" alt="合作方2" class="max-w-full max-h-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary mb-2">联系我们</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="mt-4 text-gray-600">欢迎来电咨询，竭诚为您服务</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-10">
+                <!-- 联系信息 -->
+                <div class="md:w-1/2 space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl"><i class="fa fa-map-marker"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg">公司地址</h4>
+                            <p class="text-gray-600">江苏省南京市XX区XX路XX号恒泰碧水产业园</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl"><i class="fa fa-phone"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg">联系电话</h4>
+                            <p class="text-gray-600">025-XXXXXXXX / 138-XXXX-XXXX</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl"><i class="fa fa-envelope"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg">企业邮箱</h4>
+                            <p class="text-gray-600">njhtbs@163.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 联系表单 -->
+                <div class="md:w-1/2 bg-light p-6 rounded-lg shadow">
+                    <h4 class="font-bold text-xl mb-4 text-primary">在线咨询</h4>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="您的姓名" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-primary">
+                        <input type="tel" placeholder="您的电话" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-primary">
+                        <textarea placeholder="咨询内容" rows="4" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-primary"></textarea>
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded font-bold hover:bg-dark transition-all">提交咨询</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 南京恒泰碧水环保科技有限公司 版权所有 | 专业泳池热泵解决方案</p>
+            <p class="text-gray-400 text-sm mt-2">诚信立足 · 创新致远 · 碧水守护</p>
+        </div>
+    </footer>
+
+    <!-- JS交互逻辑 -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // 合作方无限滚动动画
+        const partnerSlider = document.getElementById('partnerSlider');
+        let scrollWidth = 0;
+        function slide() {
+            scrollWidth += 1;
+            if (scrollWidth > partnerSlider.scrollWidth / 2) {
+                scrollWidth = 0;
+            }
+            partnerSlider.style.transform = `translateX(-${scrollWidth}px)`;
+            requestAnimationFrame(slide);
+        }
+        slide();
+    </script>
+</body>
+</html>
