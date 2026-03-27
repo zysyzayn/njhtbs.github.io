@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南京恒泰碧水 - 泳池热泵专业解决方案服务商</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义主题配置（蓝色基底，贴合泳池/热泵） -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F52BA', // 主深蓝（高端商务）
+                        secondary: '#1E90FF', // 辅助浅蓝
+                        light: '#F0F7FF', // 浅蓝背景
+                        dark: '#082F6E', // 深蓝重色
+                        gray: {
+                            100: '#F8FAFC',
+                            200: '#E2E8F0',
+                            700: '#334155',
+                            800: '#1E293B',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Microsoft YaHei', 'PingFang SC', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 4px 20px rgba(15, 82, 186, 0.08)',
+                        'card-hover': '0 8px 30px rgba(15, 82, 186, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .scroll-smooth { scroll-behavior: smooth; }
+            .nav-fixed { position: fixed; top: 0; left: 0; right: 0; z-index: 999; }
+            .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+            .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
+            .fade-in.active { opacity: 1; transform: translateY(0); }
+            .bg-mask { background-color: rgba(8, 47, 110, 0.7); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white scroll-smooth">
+    <!-- 顶部导航栏（吸顶+移动端折叠，对标芬尼官网导航） -->
+    <header id="navbar" class="bg-white shadow-sm transition-all duration-300 nav-fixed">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- 企业Logo -->
+                <a href="#home" class="flex items-center gap-2">
+                    <i class="fa fa-tint text-primary text-2xl md:text-3xl"></i>
+                    <h1 class="text-xl md:text-2xl font-bold text-primary">南京恒泰碧水</h1>
+                </a>
+                <!-- 桌面端导航（贴合芬尼官网模块逻辑） -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors">首页</a>
+                    <a href="#solution" class="text-gray-700 hover:text-primary font-medium transition-colors">解决方案</a>
+                    <a href="#product" class="text-gray-700 hover:text-primary font-medium transition-colors">产品中心</a>
+                    <a href="#strength" class="text-gray-700 hover:text-primary font-medium transition-colors">企业实力</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary font-medium transition-colors">关于我们</a>
+                    <a href="#news" class="text-gray-700 hover:text-primary font-medium transition-colors">新闻动态</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">联系我们</a>
+                </nav>
+                <!-- 服务热线（芬尼官网突出热线，保留此设计） -->
+                <div class="hidden md:flex items-center gap-4">
+                    <span class="text-gray-700"><i class="fa fa-phone text-primary"></i> 400-XXX-XXXX</span>
+                </div>
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-primary text-2xl">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200 shadow-md">
+            <div class="container mx-auto px-4 py-3 flex flex-col gap-3">
+                <a href="#home" class="py-2 text-gray-700 hover:text-primary">首页</a>
+                <a href="#solution" class="py-2 text-gray-700 hover:text-primary">解决方案</a>
+                <a href="#product" class="py-2 text-gray-700 hover:text-primary">产品中心</a>
+                <a href="#strength" class="py-2 text-gray-700 hover:text-primary">企业实力</a>
+                <a href="#about" class="py-2 text-gray-700 hover:text-primary">关于我们</a>
+                <a href="#news" class="py-2 text-gray-700 hover:text-primary">新闻动态</a>
+                <a href="#contact" class="py-2 text-gray-700 hover:text-primary">联系我们</a>
+                <div class="py-2 border-t border-gray-200 mt-2">
+                    <span class="text-primary font-medium"><i class="fa fa-phone"></i> 400-XXX-XXXX</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首页Banner（对标芬尼官网大Banner，突出核心业务） -->
+    <section id="home" class="h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://picsum.photos/id/1058/1920/1080" alt="泳池热泵工程实景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-mask"></div>
+        </div>
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 z-10 text-white">
+            <div class="max-w-3xl fade-in">
+                <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-shadow leading-tight">
+                    泳池热泵专业解决方案<br>服务商
+                </h2>
+                <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-100 text-shadow max-w-2xl">
+                    专注泳池恒温除湿、热泵供暖制冷、泳池水处理，为商用/民用泳池提供全流程节能解决方案
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#solution" class="bg-primary hover:bg-dark text-white px-6 py-3 rounded font-bold transition-colors flex items-center gap-2">
+                        查看解决方案 <i class="fa fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="bg-white hover:bg-light text-primary px-6 py-3 rounded font-bold transition-colors flex items-center gap-2">
+                        立即咨询 <i class="fa fa-comments"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 向下滚动箭头 -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce">
+            <a href="#solution"><i class="fa fa-angle-down text-3xl"></i></a>
+        </div>
+    </section>
+
+    <!-- 品牌核心定位（对标芬尼“全球超高端领导者”） -->
+    <section class="py-10 bg-light">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-primary fade-in">
+                中国泳池热泵行业<span class="text-dark">核心服务商</span>
+            </h3>
+            <p class="mt-4 text-gray-700 max-w-3xl mx-auto fade-in">
+                深耕泳池工程与热泵节能领域十余年，聚焦泳池恒温、除湿、水处理核心需求，以技术创新为核心，为全球客户提供高效、节能、环保的泳池整体解决方案
+            </p>
+        </div>
+    </section>
+
+    <!-- 解决方案（核心模块，对标芬尼场景化分类，贴合泳池/热泵业务） -->
+    <section id="solution" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">解决方案</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-700 max-w-3xl mx-auto">
+                    按场景定制专属泳池热泵解决方案，覆盖商用、民用、工程全领域，满足不同场景的恒温、除湿、水处理需求
+                </p>
+            </div>
+
+            <!-- 场景解决方案卡片（4大核心场景，悬浮动效） -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- 场景1：商用泳池工程 -->
+                <div class="bg-light rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 p-6 fade-in">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-building text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">商用泳池工程</h4>
+                    <p class="text-gray-700 mb-4">
+                        为酒店、体育馆、游泳馆等商用泳池提供恒温、除湿、水处理一体化工程解决方案，高效节能，符合行业标准
+                    </p>
+                    <a href="#contact" class="text-primary font-medium flex items-center gap-2 hover:underline">
+                        定制方案 <i class="fa fa-chevron-right text-sm"></i>
+                    </a>
+                </div>
+                <!-- 场景2：私人泳池定制 -->
+                <div class="bg-light rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 p-6 fade-in" style="transition-delay: 0.1s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-home text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">私人泳池定制</h4>
+                    <p class="text-gray-700 mb-4">
+                        为别墅、私人会所定制小型泳池热泵系统，静音运行、恒温精准，打造个性化高端泳池体验
+                    </p>
+                    <a href="#contact" class="text-primary font-medium flex items-center gap-2 hover:underline">
+                        定制方案 <i class="fa fa-chevron-right text-sm"></i>
+                    </a>
+                </div>
+                <!-- 场景3：泳池恒温除湿 -->
+                <div class="bg-light rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 p-6 fade-in" style="transition-delay: 0.2s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-thermometer-half text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">泳池恒温除湿</h4>
+                    <p class="text-gray-700 mb-4">
+                        核心泳池恒温除湿机组，解决泳池结露、墙面发霉问题，恒温精度±0.5℃，除湿效率行业领先
+                    </p>
+                    <a href="#product" class="text-primary font-medium flex items-center gap-2 hover:underline">
+                        查看产品 <i class="fa fa-chevron-right text-sm"></i>
+                    </a>
+                </div>
+                <!-- 场景4：热泵供暖制冷 -->
+                <div class="bg-light rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 p-6 fade-in" style="transition-delay: 0.3s">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-snowflake-o text-primary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">热泵供暖制冷</h4>
+                    <p class="text-gray-700 mb-4">
+                        空气源热泵冷暖两用机组，适配泳池周边空间供暖制冷，与泳池恒温系统联动，节能率超75%
+                    </p>
+                    <a href="#product" class="text-primary font-medium flex items-center gap-2 hover:underline">
+                        查看产品 <i class="fa fa-chevron-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心（图文+视频，对标芬尼产品体系化，核心模块） -->
+    <section id="product" class="py-20 bg-light">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">产品中心</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-700 max-w-3xl mx-auto">
+                    全品类泳池热泵/水处理产品，自主研发生产，品质保障，覆盖泳池全流程核心需求
+                </p>
+            </div>
+
+            <!-- 产品图文分类展示 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
+                <!-- 产品1：泳池恒温热泵机组 -->
+                <div class="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden fade-in">
+                    <img src="https://picsum.photos/id/1059/600/400" alt="泳池恒温热泵机组" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-3 inline-block">核心产品</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">泳池恒温热泵机组</h4>
+                        <p class="text-gray-700 mb-4">
+                            高效节能，恒温精度±0.5℃，适用于各类商用/民用泳池，运行稳定，维护简单
+                        </p>
+                        <ul class="text-gray-700 space-y-2 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 节能率≥75%</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 智能温控</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 低噪运行</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 产品2：泳池恒温除湿一体机 -->
+                <div class="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden fade-in" style="transition-delay: 0.1s">
+                    <img src="https://picsum.photos/id/1060/600/400" alt="泳池恒温除湿一体机" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-3 inline-block">明星产品</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">泳池恒温除湿一体机</h4>
+                        <p class="text-gray-700 mb-4">
+                            一机双效，同时实现泳池恒温与环境除湿，解决结露发霉问题，节省安装空间
+                        </p>
+                        <ul class="text-gray-700 space-y-2 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 除湿效率8kg/h</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 恒温除湿联动</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 防腐设计</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 产品3：全自动泳池水处理设备 -->
+                <div class="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden fade-in" style="transition-delay: 0.2s">
+                    <img src="https://picsum.photos/id/1061/600/400" alt="全自动泳池水处理设备" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-3 inline-block">配套产品</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">全自动泳池水处理设备</h4>
+                        <p class="text-gray-700 mb-4">
+                            全自动过滤、消毒、循环，水质达到国家泳池标准，无需人工值守，维护成本低
+                        </p>
+                        <ul class="text-gray-700 space-y-2 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 全自动运行</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 高精度过滤</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> 无氯消毒可选</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产品核心视频展示（对标芬尼产品视频，穿插核心位置） -->
+            <div class="max-w-4xl mx-auto fade-in">
+                <h4 class="text-xl md:text-2xl font-bold text-gray-800 text-center mb-6">产品运行与工程案例视频</h4>
+                <div class="aspect-video rounded-lg overflow-hidden shadow-lg border-4 border-white">
+                    <!-- 替换为你的企业产品/工程视频链接（腾讯视频/抖音/B站/企业自有视频均可） -->
+                    <iframe width="100%" height="100%" src="https://player.vimeo.com/video/76979871?h=827ec51fa4" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+                <p class="text-center text-gray-700 mt-4">泳池恒温热泵机组运行原理 | 商用泳池工程实景展示</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业实力（数据化展示，对标芬尼专利/标准/实验室，新增核心模块） -->
+    <section id="strength" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">企业实力</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-700 max-w-3xl mx-auto">
+                    十余年行业积淀，以技术创新和品质服务打造核心竞争力，成为泳池热泵行业标杆企业
+                </p>
+            </div>
+
+            <!-- 实力数据卡片（数字+图标，滚动渐入） -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 text-center">
+                <div class="fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2 counter" data-num="15">0</div>
+                    <p class="text-gray-700">年行业经验</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 0.1s">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2 counter" data-num="86">0</div>
+                    <p class="text-gray-700">项核心专利</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 0.2s">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2 counter" data-num="20">0</div>
+                    <p class="text-gray-700">项行业标准</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 0.3s">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2 counter" data-num="5000">0</div>
+                    <p class="text-gray-700">+成功案例</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 0.4s">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2 counter" data-num="30">0</div>
+                    <p class="text-gray-700">+合作城市</p>
+                </div>
+                <div class="fade-in" style="transition-delay: 0.5s">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2 counter" data-num="24">0</div>
+                    <p class="text-gray-700">小时贴心服务</p>
+                </div>
+            </div>
+
+            <!-- 实力支撑模块（研发+生产+服务，对标芬尼智能制造） -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-light rounded-lg shadow-card p-6 fade-in">
+                    <i class="fa fa-flask text-primary text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">专业研发团队</h4>
+                    <p class="text-gray-700">
+                        拥有20+资深研发工程师，与高校合作建立实验室，专注泳池热泵技术创新，持续迭代产品
+                    </p>
+                </div>
+                <div class="bg-light rounded-lg shadow-card p-6 fade-in" style="transition-delay: 0.1s">
+                    <i class="fa fa-industry text-primary text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">标准化生产</h4>
+                    <p class="text-gray-700">
+                        现代化生产基地，引进自动化生产设备，全流程品控，确保每一台产品符合高端品质标准
+                    </p>
+                </div>
+                <div class="bg-light rounded-lg shadow-card p-6 fade-in" style="transition-delay: 0.2s">
+                    <i class="fa fa-handshake-o text-primary text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">全流程服务</h4>
+                    <p class="text-gray-700">
+                        从方案设计、安装调试到售后维保，提供一站式全流程服务，24小时响应客户需求
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们（企业介绍+企业愿景，融合原需求模块） -->
+    <section id="about" class="py-20 bg-light">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="https://picsum.photos/id/1076/800/600" alt="南京恒泰碧水企业形象" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                <div class="fade-in" style="transition-delay: 0.2s">
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-6">关于恒泰碧水</h3>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">企业介绍</h4>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        南京恒泰碧水环保科技有限公司是一家专注于<strong class="text-primary font-medium">泳池热泵、泳池恒温除湿、水处理系统</strong>研发、生产、销售与服务的高新技术企业。
+                        公司立足南京，服务全国，深耕泳池工程与热泵节能领域十余年，拥有专业的研发团队、施工团队和完善的售后服务体系，为酒店、体育馆、小区、私人别墅等各类客户提供定制化泳池整体解决方案。
+                    </p>
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">企业愿景</h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        以科技守护碧水，以节能创造价值，成为全球领先的泳池节能设备服务商，让每一个泳池都绿色、高效、可持续。
+                        始终坚持「品质为先、客户至上」的经营理念，以先进的技术、可靠的产品、完善的服务，打造泳池热泵行业民族品牌。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作方轮播（对标芬尼合作生态，保留原需求模块） -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h3 class="text-2xl md:text-3xl font-bold text-primary">战略合作伙伴</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+            </div>
+            <!-- 合作方无限轮播 -->
+            <div class="overflow-hidden relative">
+                <div id="partnerSlider" class="flex gap-8 items-center justify-start animate-slide py-4">
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/1/150/80" alt="合作方1" class="max-w-full max-h-full object-contain"></div>
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/2/150/80" alt="合作方2" class="max-w-full max-h-full object-contain"></div>
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/3/150/80" alt="合作方3" class="max-w-full max-h-full object-contain"></div>
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/4/150/80" alt="合作方4" class="max-w-full max-h-full object-contain"></div>
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/5/150/80" alt="合作方5" class="max-w-full max-h-full object-contain"></div>
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/6/150/80" alt="合作方6" class="max-w-full max-h-full object-contain"></div>
+                    <!-- 重复实现无限滚动 -->
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/1/150/80" alt="合作方1" class="max-w-full max-h-full object-contain"></div>
+                    <div class="w-32 md:w-40 h-16 md:h-20 flex items-center justify-center bg-light rounded shadow-sm p-3"><img src="https://picsum.photos/id/2/150/80" alt="合作方2" class="max-w-full max-h-full object-contain"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻动态（对标芬尼新闻/科普，新增核心模块） -->
+    <section id="news" class="py-20 bg-light">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">新闻动态</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-700 max-w-3xl mx-auto">
+                    企业最新动态、行业资讯、泳池热泵知识科普，带你了解泳池行业最新趋势
+                </p>
+            </div>
+
+            <!-- 新闻列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- 新闻1 -->
+                <div class="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden fade-in">
+                    <img src="https://picsum.photos/id/1080/600/300" alt="企业动态" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <span class="text-gray-500 text-sm mb-3 inline-block"><i class="fa fa-calendar mr-2"></i> 2025-12-10</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">恒泰碧水荣获泳池热泵行业「领军企业」称号</h4>
+                        <p class="text-gray-700 mb-4 line-clamp-3">
+                            在中国热泵行业年会上，南京恒泰碧水凭借十余年的技术积淀和丰富的工程案例，荣获泳池热泵细分领域「领军企业」称号，成为行业标杆...
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline">阅读全文 <i class="fa fa-chevron-right text-sm"></i></a>
+                    </div>
+                </div>
+                <!-- 新闻2 -->
+                <div class="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden fade-in" style="transition-delay: 0.1s">
+                    <img src="https://picsum.photos/id/1081/600/300" alt="行业资讯" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <span class="text-gray-500 text-sm mb-3 inline-block"><i class="fa fa-calendar mr-2"></i> 2025-11-25</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">2025泳池热泵行业发展趋势：节能化、智能化</h4>
+                        <p class="text-gray-700 mb-4 line-clamp-3">
+                            随着双碳政策的深入推进，泳池热泵行业迎来新的发展机遇，节能化、智能化成为行业核心发展方向，恒温除湿一体机将成为市场主流...
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline">阅读全文 <i class="fa fa-chevron-right text-sm"></i></a>
+                    </div>
+                </div>
+                <!-- 新闻3 -->
+                <div class="bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden fade-in" style="transition-delay: 0.2s">
+                    <img src="https://picsum.photos/id/1082/600/300" alt="知识科普" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <span class="text-gray-500 text-sm mb-3 inline-block"><i class="fa fa-calendar mr-2"></i> 2025-10-18</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">泳池恒温热泵如何选型？这几个参数必看</h4>
+                        <p class="text-gray-700 mb-4 line-clamp-3">
+                            泳池恒温热泵的选型直接影响使用效果和节能效率，选购时需重点关注制热量、恒温精度、节能率、防腐设计等核心参数，避免选型不当...
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline">阅读全文 <i class="fa fa-chevron-right text-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们（融合芬尼热线+在线咨询，保留原需求模块） -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">联系我们</h3>
+                <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
+                <p class="mt-6 text-gray-700 max-w-3xl mx-auto">
+                    欢迎来电咨询，我们将为您提供专业的泳池热泵解决方案，24小时贴心服务
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- 联系信息 -->
+                <div class="space-y-8 fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl shrink-0 mt-1">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">公司地址</h4>
+                            <p class="text-gray-700">江苏省南京市XX区XX路XX号恒泰碧水产业园</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl shrink-0 mt-1">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">联系电话</h4>
+                            <p class="text-gray-700 mb-2">全国服务热线：400-XXX-XXXX</p>
+                            <p class="text-gray-700">销售热线：138-XXXX-XXXX</p>
+                            <p class="text-gray-700">售后热线：139-XXXX-XXXX</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl shrink-0 mt-1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">企业邮箱</h4>
+                            <p class="text-gray-700">销售邮箱：xs@njhtbs.com</p>
+                            <p class="text-gray-700">售后邮箱：sh@njhtbs.com</p>
+                            <p class="text-gray-700">官方邮箱：njhtbs@163.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl shrink-0 mt-1">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">工作时间</h4>
+                            <p class="text-gray-700">周一至周五：8:30-18:00</p>
+                            <p class="text-gray-700">周六至周日：9:00-17:00（值班）</p>
+                            <p class="text-gray-700">节假日：24小时热线值守</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 在线咨询表单（对标芬尼在线客服） -->
+                <div class="bg-light rounded-lg shadow-lg p-8 fade-in" style="transition-delay: 0.2s">
+                    <h4 class="text-xl font-bold text-primary mb-6">在线咨询</h4>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="您的姓名 *" class="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" required>
+                            <input type="tel" placeholder="您的电话 *" class="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" required>
+                        </div>
+                        <input type="text" placeholder="咨询项目（如：商用泳池工程）" class="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all">
+                        <textarea placeholder="您的咨询内容 *" rows="4" class="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" required></textarea>
+                        <button type="submit" class="w-full bg-primary hover:bg-dark text-white py-3 rounded font-bold transition-colors flex items-center justify-center gap-2">
+                            提交咨询 <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚（对标芬尼官网页脚，简洁大气） -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- 企业信息 -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa fa-tint text-secondary text-2xl"></i>
+                        <h2 class="text-xl font-bold">南京恒泰碧水</h2>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        泳池热泵专业解决方案服务商，以科技守护碧水，以节能创造价值
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-secondary hover:bg-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-secondary hover:bg-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center text-secondary hover:bg-primary transition-colors">
+                            <i class="fa fa-qq"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 快速导航 -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">快速导航</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-secondary transition-colors">首页</a></li>
+                        <li><a href="#solution" class="hover:text-secondary transition-colors">解决方案</a></li>
+                        <li><a href="#product" class="hover:text-secondary transition-colors">产品中心</a></li>
+                        <li><a href="#strength" class="hover:text-secondary transition-colors">企业实力</a></li>
+                        <li><a href="#about" class="hover:text-secondary transition-colors">关于我们</a></li>
+                    </ul>
+                </div>
+                <!-- 产品中心 -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">产品中心</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-secondary transition-colors">泳池恒温热泵机组</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">恒温除湿一体机</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">水处理设备</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">空气源热泵机组</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">泳池配套设备</a></li>
+                    </ul>
+                </div>
+                <!-- 联系我们 -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">全国服务热线</h4>
+                    <p class="text-secondary text-xl font-bold mb-2"><i class="fa fa-phone mr-2"></i> 400-XXX-XXXX</p>
+                    <p class="text-gray-300 mb-4">24小时为您服务，随时解答您的问题</p>
+                    <p class="text-gray-300"><i class="fa fa-map-marker mr-2"></i> 江苏省南京市XX区XX路XX号</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>© 2025 南京恒泰碧水环保科技有限公司 版权所有 | 苏ICP备XXXXXXXX号</p>
+                <p class="mt-2 text-sm">诚信立足 · 创新致远 · 碧水守护</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center text-xl opacity-0 invisible transition-all duration-300 z-999">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- JS交互逻辑（含芬尼官网风格的轻交互） -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.innerHTML = mobileMenu.classList.contains('hidden') ? '<i class="fa fa-bars"></i>' : '<i class="fa fa-times"></i>';
+        });
+
+        // 导航栏滚动效果（吸顶+背景变化）
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow');
+            }
+        });
+
+        // 元素滚动渐入效果
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => fadeInObserver.observe(el));
+
+        // 数字计数动画
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const targetNum = parseInt(counter.dataset.num);
+                    let currentNum = 0;
+                    const step = Math.ceil(targetNum / 50);
+                    const timer = setInterval(() => {
+                        currentNum += step;
+                        if (currentNum >= targetNum) {
+                            currentNum = targetNum;
+                            clearInterval(timer);
+                        }
+                        counter.innerText = currentNum;
+                    }, 30);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => counterObserver.observe(c));
+
+        // 合作方无限轮播
+        const partnerSlider = document.getElementById('partnerSlider');
+        let scrollX = 0;
+        function partnerSlide() {
+            scrollX += 1;
+            if (scrollX > partnerSlider.scrollWidth / 2) {
+                scrollX = 0;
+            }
+            partnerSlider.style.transform = `translateX(-${scrollX}px)`;
+            requestAnimationFrame(partnerSlide);
+        }
+        partnerSlide();
+
+        // 回到顶部按钮
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 导航链接点击关闭移动端菜单
+        const navLinks = document.querySelectorAll('#mobileMenu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+</html>
